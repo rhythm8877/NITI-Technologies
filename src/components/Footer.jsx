@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section">
             <div className="footer-logo">
-              <img src="images/NITI-logo.png" alt="NITI Technologies"/>
+              <img src="/images/NITI-logo.png" alt="NITI Technologies"/>
             </div>
             <p className="footer-description">
               Empowering digital transformation in Nagaland and beyond with innovative solutions.
