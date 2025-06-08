@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const FeaturedProjects = () => {
   const navigate = useNavigate();
@@ -9,18 +9,18 @@ const FeaturedProjects = () => {
       title: 'NBSE Connect',
       description: 'Digital platform for Nagaland Board of School Education connecting students, teachers, and administrators',
       image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
       category: 'Education',
-      link: '/projects/nbse-connect'
+      androidLink: '#', // To be updated with actual Android download link
+      iosLink: '#' // To be updated with actual iOS download link
     },
     {
       id: 2,
       title: 'Hornbill Festival App',
       description: 'Official mobile application for Nagaland\'s premier cultural festival with live updates and booking',
       image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&h=400&fit=crop',
-      technologies: ['React Native', 'Firebase', 'Redux', 'Stripe'],
       category: 'Cultural',
-      link: '/projects/hornbill-app'
+      androidLink: '#', // To be updated with actual Android download link
+      iosLink: '#' // To be updated with actual iOS download link
     }
   ];
 
@@ -49,21 +49,32 @@ const FeaturedProjects = () => {
                     <span className="project-category">{project.category}</span>
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
-                    <div className="project-tech">
-                      {project.technologies.map((tech, techIndex) => (
-                        <span key={techIndex} className="tech-tag">{tech}</span>
-                      ))}
+                    <div className="app-download-buttons">
+                      <a 
+                        href={project.androidLink}
+                        className="download-button android-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12V5c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7Z"></path>
+                          <path d="M12 18h.01"></path>
+                        </svg>
+                        Android
+                      </a>
+                      <a 
+                        href={project.iosLink}
+                        className="download-button ios-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"></path>
+                          <path d="M10 2c1 .5 2 2 2 5"></path>
+                        </svg>
+                        iOS
+                      </a>
                     </div>
-                    <Link 
-                      to={project.link} 
-                      className="project-cta"
-                      onClick={() => window.scrollTo(0, 0)}
-                    >
-                      View Case Study
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="m9 18 6-6-6-6"/>
-                      </svg>
-                    </Link>
                   </div>
                 </div>
               </div>
@@ -200,39 +211,77 @@ const FeaturedProjects = () => {
           line-height: 1.5;
         }
 
-        .project-tech {
+        .app-download-buttons {
           display: flex;
-          flex-wrap: wrap;
-          gap: 0.5rem;
+          gap: 1rem;
           justify-content: center;
-          margin-bottom: 2rem;
+          margin-bottom: 0.5rem;
+          width: 100%;
         }
 
-        .tech-tag {
-          padding: 0.3rem 0.8rem;
-          background: rgba(255, 255, 255, 0.1);
+        .download-button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          padding: 0.8rem 1.5rem;
+          border-radius: 25px;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          text-decoration: none;
+          width: 140px;
+          height: 45px;
+          position: relative;
+          overflow: hidden;
           border: 1px solid rgba(255, 255, 255, 0.2);
-          border-radius: 15px;
-          font-size: 0.8rem;
+          backdrop-filter: blur(5px);
+          white-space: nowrap;
+          box-sizing: border-box;
+        }
+
+        .android-button {
+          background: rgba(65, 146, 203, 0.2);
           color: white;
         }
 
-        .project-cta {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          padding: 0.8rem 1.5rem;
-          background: white;
-          color: var(--background);
-          text-decoration: none;
-          border-radius: 25px;
-          font-weight: 500;
-          transition: var(--transition-smooth);
+        .ios-button {
+          background: rgba(65, 146, 203, 0.2);
+          color: white;
         }
 
-        .project-cta:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+        .download-button svg {
+          transition: transform 0.3s ease;
+        }
+
+        .download-button:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(65, 146, 203, 0.3);
+          background: var(--primary-accent);
+          border-color: var(--primary-accent);
+        }
+        
+        .download-button:hover svg {
+          transform: scale(1.2);
+        }
+
+        .download-button::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+          );
+          transition: left 0.7s ease;
+        }
+        
+        .download-button:hover::before {
+          left: 100%;
         }
 
         .projects-cta {
@@ -281,6 +330,34 @@ const FeaturedProjects = () => {
           .project-overlay h3 {
             font-size: 1.5rem;
           }
+          
+          .app-download-buttons {
+            flex-direction: row;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .download-button {
+            width: 110px;
+            height: 40px;
+            padding: 0.6rem 1rem;
+            font-size: 0.85rem;
+          }
+        }
+        
+        @media (max-width: 400px) {
+          .download-button {
+            width: 100px;
+            height: 36px;
+            padding: 0.5rem 0.7rem;
+            font-size: 0.8rem;
+          }
+          
+          .download-button svg {
+            width: 16px;
+            height: 16px;
+          }
         }
       `}</style>
     </section>
@@ -288,3 +365,4 @@ const FeaturedProjects = () => {
 };
 
 export default FeaturedProjects;
+

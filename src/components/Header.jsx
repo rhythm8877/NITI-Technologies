@@ -46,32 +46,46 @@ export default function Header() {
   const isProjectsPage = location.pathname === '/projects';
   
   // Define navigation items
-  const homeNavItems = [
-    { name: "Home", section: "hero" },
-    { name: "About", section: "services" },
-    { name: "Projects", section: "projects" },
-    { name: "Contact", section: "contact" },
+  const navItems = [
+    { name: "Home", section: "hero", href: "/" },
+    { name: "About", section: "services", href: "/#services" },
+    { name: "Projects", section: "projects", href: "/projects" },
+    { name: "Contact", section: "contact", href: "/#contact" },
   ];
-  
-  // Only show Home button on projects page
-  const projectsNavItems = [
-    { name: "Home", section: "hero" },
-  ];
-  
-  // Choose which nav items to display based on current page
-  const navItems = isProjectsPage ? projectsNavItems : homeNavItems;
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
+  const [activeSection, setActiveSection] = useState(isProjectsPage ? "projects" : "hero");
   const navbarRef = useRef(null);
   
-  // Reset active section when navigating to home page
+  // Set active section based on URL or current page
   useEffect(() => {
-    if (isHomePage) {
+    // If on projects page, set active section to projects
+    if (isProjectsPage) {
+      setActiveSection("projects");
+      return;
+    }
+    
+    // Handle hash-based navigation for home page
+    const hash = window.location.hash.replace('#', '');
+    
+    if (hash) {
+      const sectionExists = navItems.some(item => item.section === hash);
+      if (sectionExists) {
+        setActiveSection(hash);
+        
+        // Scroll to the section after a short delay to ensure components are rendered
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    } else if (isHomePage) {
       setActiveSection("hero");
     }
-  }, [location.pathname, isHomePage]);
+  }, [location.pathname, isProjectsPage, isHomePage]);
   
   // Use Framer Motion to detect scroll position
   const { scrollY } = useScroll({
@@ -84,10 +98,11 @@ export default function Header() {
   });
 
   // Function to check which section is currently in view (only on homepage)
+  // This only updates the active visual state, not the URL
   useEffect(() => {
     if (!isHomePage) return;
     
-    const sections = homeNavItems.map(item => document.getElementById(item.section));
+    const sections = navItems.map(item => document.getElementById(item.section));
     
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3;
@@ -99,7 +114,7 @@ export default function Header() {
           const sectionHeight = section.offsetHeight;
           
           if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
-            setActiveSection(homeNavItems[i].section);
+            setActiveSection(navItems[i].section);
             break;
           }
         }
@@ -110,23 +125,40 @@ export default function Header() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [isHomePage]);
+  }, [isHomePage, navItems]);
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   // Function to handle navigation
-  const handleNavigation = (e, sectionId) => {
+  const handleNavigation = (e, sectionId, href) => {
     e.preventDefault();
     closeMobileMenu();
     
-    // If we're on the Projects page and clicking Home
-    if (isProjectsPage) {
-      setActiveSection("hero");
+    // For home section, don't add a hash
+    if (sectionId === "hero") {
       navigate('/');
+      setActiveSection("hero");
+      window.scrollTo(0, 0);
       return;
     }
     
-    // If on home page, scroll to section
+    // If section is Projects and we're not already on projects page
+    if (sectionId === "projects" && !isProjectsPage) {
+      navigate('/projects');
+      setActiveSection("projects");
+      return;
+    }
+    
+    // If section is not Projects but we're on projects page, go to homepage and scroll
+    if (sectionId !== "projects" && isProjectsPage) {
+      navigate(`/#${sectionId}`);
+      return;
+    }
+    
+    // Update URL hash when clicking navigation items (not during scroll)
+    navigate(`/#${sectionId}`);
+    
+    // Scroll to section
     setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
@@ -144,7 +176,8 @@ export default function Header() {
       return;
     }
     
-    // If on home page, scroll to contact section
+    // If on home page, scroll to contact section and update URL
+    navigate('/#contact');
     setActiveSection("contact");
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -180,6 +213,7 @@ export default function Header() {
           items={navItems} 
           onNavigation={handleNavigation} 
           activeSection={activeSection}
+          isProjectsPage={isProjectsPage}
         />
         <div className={styles.desktopButtons}>
           <NavbarButton 
@@ -230,6 +264,7 @@ export default function Header() {
           onNavigation={handleNavigation}
           onStartProject={handleStartProject}
           activeSection={activeSection}
+          isProjectsPage={isProjectsPage}
         />
       </motion.div>
     </motion.div>
@@ -237,7 +272,7 @@ export default function Header() {
 }
 
 // --- Desktop Navigation Items ---
-const NavItemsDesktop = ({ items, onNavigation, activeSection }) => {
+const NavItemsDesktop = ({ items, onNavigation, activeSection, isProjectsPage }) => {
   const [hovered, setHovered] = useState(null);
   return (
     <motion.div
@@ -247,8 +282,8 @@ const NavItemsDesktop = ({ items, onNavigation, activeSection }) => {
       {items.map((item, idx) => (
         <a
           key={`link-${idx}`}
-          href={`#${item.section}`}
-          onClick={(e) => onNavigation(e, item.section)}
+          href={item.href}
+          onClick={(e) => onNavigation(e, item.section, item.href)}
           onMouseEnter={() => setHovered(idx)}
           className={cn(
             styles.navLink, 
@@ -269,7 +304,7 @@ const NavItemsDesktop = ({ items, onNavigation, activeSection }) => {
 };
 
 // --- Mobile Navigation Menu ---
-const NavMenuMobile = ({ isOpen, items, onClose, onNavigation, onStartProject, activeSection }) => (
+const NavMenuMobile = ({ isOpen, items, onClose, onNavigation, onStartProject, activeSection, isProjectsPage }) => (
   <AnimatePresence>
     {isOpen && (
       <motion.div
@@ -281,8 +316,8 @@ const NavMenuMobile = ({ isOpen, items, onClose, onNavigation, onStartProject, a
         {items.map((item, idx) => (
           <a
             key={`mobile-link-${idx}`}
-            href={`#${item.section}`}
-            onClick={(e) => onNavigation(e, item.section)}
+            href={item.href}
+            onClick={(e) => onNavigation(e, item.section, item.href)}
             className={cn(
               styles.mobileNavLink,
               activeSection === item.section && styles.active

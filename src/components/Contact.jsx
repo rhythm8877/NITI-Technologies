@@ -5,17 +5,25 @@ import { GlowingEffect } from './ui/glowing-effect.jsx';
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    company: '',
+    phone: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    if (e.target.name === 'phone') {
+      // Only allow digits and limit to 10 characters
+      const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+      setFormData({
+        ...formData,
+        [e.target.name]: value
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -25,7 +33,7 @@ const Contact = () => {
     // Simulate form submission
     setTimeout(() => {
       alert('Thank you for your message! We\'ll get back to you soon.');
-      setFormData({ name: '', email: '', company: '', message: '' });
+      setFormData({ name: '', phone: '', message: '' });
       setIsSubmitting(false);
     }, 1000);
   };
@@ -68,39 +76,41 @@ const Contact = () => {
         <div className="contact-content">
           <div className="contact-info animate-on-scroll stagger-1">
             <h2>Let's Build Something Amazing Together</h2>
-            <p>
-              Ready to transform your ideas into digital reality? We're here to help you 
-              navigate the digital landscape and create solutions that drive growth.
-            </p>
+            <div className="info-wrapper">
+              <p className="info-description">
+                Ready to transform your ideas into digital reality? We're here to help you 
+                navigate the digital landscape and create solutions that drive growth.
+              </p>
             
-            <div className="contact-details">
-              <div className="contact-item">
-                <div className="contact-icon">
-                  <MapPin size={24} />
+              <div className="contact-details">
+                <div className="contact-item">
+                  <div className="contact-icon">
+                    <MapPin size={24} />
+                  </div>
+                  <div>
+                    <h4>Our Location</h4>
+                    <p>Dimapur, Nagaland, India</p>
+                  </div>
                 </div>
-                <div>
-                  <h4>Our Location</h4>
-                  <p>Dimapur, Nagaland, India</p>
+                
+                <div className="contact-item">
+                  <div className="contact-icon">
+                    <Mail size={24} />
+                  </div>
+                  <div>
+                    <h4>Email Us</h4>
+                    <p>hello@nititechnologies.com</p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="contact-item">
-                <div className="contact-icon">
-                  <Mail size={24} />
-                </div>
-                <div>
-                  <h4>Email Us</h4>
-                  <p>hello@nititechnologies.com</p>
-                </div>
-              </div>
-              
-              <div className="contact-item">
-                <div className="contact-icon">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <h4>Call Us</h4>
-                  <p>+91 9876543210</p>
+                
+                <div className="contact-item">
+                  <div className="contact-icon">
+                    <Phone size={24} />
+                  </div>
+                  <div>
+                    <h4>Call Us</h4>
+                    <p>+91 9876543210</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -176,25 +186,17 @@ const Contact = () => {
                 
                 <div className="form-group">
                   <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleInputChange}
+                    pattern="[0-9]{10}"
+                    inputMode="numeric"
                     required
                     placeholder=" "
+                    maxLength="10"
                   />
-                  <label>Email Address</label>
-                </div>
-                
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    placeholder=" "
-                  />
-                  <label>Company (Optional)</label>
+                  <label>Phone Number</label>
                 </div>
                 
                 <div className="form-group">
@@ -206,7 +208,7 @@ const Contact = () => {
                     rows="5"
                     placeholder=" "
                   ></textarea>
-                  <label>Project Details</label>
+                  <label>Message</label>
                 </div>
                 
                 <button 
@@ -246,6 +248,7 @@ const Contact = () => {
         .contact {
           position: relative;
           background: var(--background);
+          padding: 4rem 0;
         }
 
         .contact-content {
@@ -262,23 +265,31 @@ const Contact = () => {
           font-size: 2.5rem;
           line-height: 1.2;
         }
+        
+        .info-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+        }
 
-        .contact-info > p {
+        .info-description {
           color: var(--text-secondary);
           font-size: 1.1rem;
           line-height: 1.6;
-          margin-bottom: 3rem;
+          margin: 0;
         }
 
         .contact-details {
-          margin-bottom: 3rem;
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
         }
 
         .contact-item {
           display: flex;
           align-items: flex-start;
           gap: 1rem;
-          margin-bottom: 2rem;
+          margin: 0;
           transition: transform 0.3s ease;
         }
         
@@ -316,8 +327,12 @@ const Contact = () => {
           margin: 0;
         }
 
-        .contact-social h4 {
+        .contact-social {
           color: var(--text-primary);
+          margin-top: 2rem;
+        }
+        
+        .contact-social h4 {
           margin-bottom: 1.5rem;
         }
 
@@ -380,6 +395,7 @@ const Contact = () => {
         .form-wrapper {
           position: relative;
           height: 100%;
+          display: flex;
           border-radius: 1.5rem;
           border: 1px solid rgba(255, 255, 255, 0.1);
           padding: 0.75rem;
@@ -398,22 +414,30 @@ const Contact = () => {
 
         .contact-form {
           position: relative;
-          padding: 2rem;
+          padding: 3rem 2rem;
           border-radius: 1rem;
           background: rgba(255, 255, 255, 0.05);
           border: 1px solid transparent;
           transition: all 0.3s ease;
+          display: flex;
+          flex-direction: column;
+          flex: 1;
         }
 
         .contact-form h3 {
           color: var(--text-primary);
-          margin-bottom: 2rem;
+          margin-bottom: 2.5rem;
           text-align: center;
         }
 
         .form-group {
           position: relative;
           margin-bottom: 2rem;
+        }
+
+        /* Last form group should have no extra bottom margin */
+        .form-group:last-of-type {
+          margin-bottom: 2.5rem;
         }
 
         .form-group input,
@@ -434,6 +458,16 @@ const Contact = () => {
           outline: none;
           border-color: var(--primary-accent);
           background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Fix for autofill background color */
+        .form-group input:-webkit-autofill,
+        .form-group input:-webkit-autofill:hover,
+        .form-group input:-webkit-autofill:focus,
+        .form-group input:-webkit-autofill:active {
+          transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+          -webkit-text-fill-color: var(--text-primary) !important;
+          -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.05) inset;
         }
 
         .form-group label {
@@ -461,6 +495,7 @@ const Contact = () => {
         .contact-form button {
           width: 100%;
           justify-content: center;
+          margin-top: auto;
         }
 
         .contact-form button:disabled {

@@ -1,242 +1,326 @@
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
+import React from 'react';
+import { FaEnvelope, FaFacebookF, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaTwitter } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
+const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-content">
-          <div className="footer-section">
+    <>
+      <footer className="footer">
+        <div className="footer-main">
+          {/* Left section - Logo & Description */}
+          <div className="footer-left">
             <div className="footer-logo">
-              <img src="/images/NITI-logo.png" alt="NITI Technologies"/>
+              <img src="/images/NITI-logo.png" alt="NITI Technologies" />
             </div>
             <p className="footer-description">
               Empowering digital transformation in Nagaland and beyond with innovative solutions.
             </p>
             <div className="social-links">
-              <a href="#" className="social-link" aria-label="Facebook">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
+              <a href="#" className="social-icon-wrapper" aria-label="Facebook">
+                <span className="social-icon-inner">
+                  <FaFacebookF />
+                </span>
               </a>
-              <a href="#" className="social-link" aria-label="LinkedIn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
+              <a href="#" className="social-icon-wrapper" aria-label="Twitter">
+                <span className="social-icon-inner">
+                  <FaTwitter />
+                </span>
               </a>
-              <a href="#" className="social-link" aria-label="Twitter">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
+              <a href="#" className="social-icon-wrapper" aria-label="LinkedIn">
+                <span className="social-icon-inner">
+                  <FaLinkedinIn />
+                </span>
               </a>
             </div>
           </div>
 
-          <div className="footer-section">
-            <h4>Quick Links</h4>
-            <ul className="footer-links">
-              <li><a href="/">Home</a></li>
-              <li><a href="/projects">Projects</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-section">
-            <h4>Services</h4>
-            <ul className="footer-links">
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Mobile Apps</a></li>
-              <li><a href="#">Digital Solutions</a></li>
-              <li><a href="#">Consulting</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-section">
-            <h4>Contact Info</h4>
-            <div className="contact-info">
-              <p>📍 Dimapur, Nagaland, India</p>
-              <p>📧 hello@nititechnologies.com</p>
-              <p>📞 +91 9876543210</p>
+          {/* Right section - Links and Contact */}
+          <div className="footer-right">
+            <div className="footer-section">
+              <h4>Quick Links</h4>
+              <ul className="footer-links">
+                <li><a href="#hero"><span>Home</span></a></li>
+                <li><a href="#services"><span>About</span></a></li>
+                <li><Link to="/projects"><span>Projects</span></Link></li>
+                <li><a href="#contact"><span>Contact</span></a></li>
+              </ul>
             </div>
-          </div>
-        </div>
 
-        <div className="footer-bottom">
-          <div className="footer-divider"></div>
-          <div className="footer-bottom-content">
-            <p>&copy; {currentYear} NITI Technologies. All rights reserved.</p>
-            <div className="footer-bottom-links">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
+            <div className="footer-section">
+              <h4>Services</h4>
+              <ul className="footer-links">
+                <li><a href="#services"><span>Web Development</span></a></li>
+                <li><a href="#services"><span>Mobile Apps</span></a></li>
+                <li><a href="#services"><span>UI/UX Design</span></a></li>
+                <li><a href="#services"><span>Cloud Solutions</span></a></li>
+              </ul>
+            </div>
+
+            <div className="footer-section">
+              <h4>Contact</h4>
+              <div className="contact-info">
+                <p><FaPhoneAlt /> +91 12345 67890</p>
+                <p><FaEnvelope /> info@niti.com</p>
+                <p><FaMapMarkerAlt /> Kohima, Nagaland - 797001</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <style jsx>{`
+        {/* Final accurate bottom footer */}
+        <div className="footer-bottom-content">
+          <p>© 2025 NITI Technologies. All rights reserved.</p>
+          <div className="footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <span>•</span>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
+
+      <style>{`
         .footer {
           background: linear-gradient(135deg, var(--section-bg), var(--background));
-          padding: 4rem 0 2rem;
-          margin-top: 0;
-          position: relative;
-          overflow: hidden;
+          color: #ffffff;
+          padding: 2rem;
+          font-family: 'Segoe UI', sans-serif;
         }
 
-        .footer::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, var(--primary-accent), transparent);
+        .footer-main {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 2rem;
         }
 
-        .footer-content {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 3rem;
-          margin-bottom: 3rem;
+        .footer-left {
+          flex: 1;
+          min-width: 250px;
+          max-width: 400px;
         }
 
-        .footer-section h4 {
-          color: var(--text-primary);
+        .footer-logo img {
+          width: 80px;
           margin-bottom: 1rem;
-          font-size: 1.2rem;
-          font-weight: 600;
-        }
-
-        .footer-logo {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 1.5rem;
-}
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 1rem;
-}
-
-.footer-logo img {
-  width: 100px;   /* Match navbar logo size */
-  height: auto;
-  object-fit: contain;
-}
-
-
-        .logo-text {
-          font-family: var(--font-primary);
-          font-size: 2rem;
-          font-weight: 700;
-          color: var(--primary-accent);
-        }
-
-        .logo-subtitle {
-          font-size: 0.9rem;
-          color: var(--text-secondary);
-          margin-top: -2px;
         }
 
         .footer-description {
-          color: var(--text-secondary);
-          margin-bottom: 2rem;
-          line-height: 1.6;
+          font-size: 0.95rem;
+          line-height: 1.5;
         }
 
         .social-links {
+          margin-top: 1.5rem;
           display: flex;
           gap: 1rem;
         }
 
-        .social-link {
+        .social-icon-wrapper {
+          position: relative;
           width: 40px;
           height: 40px;
-          background: rgba(255, 255, 255, 0.1);
           border-radius: 50%;
+          padding: 0.2rem;
+          transition: all 0.3s ease;
+          display: block;
+        }
+
+        .social-icon-inner {
           display: flex;
           align-items: center;
           justify-content: center;
+          width: 100%;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
           color: var(--text-secondary);
-          transition: var(--transition-smooth);
-          text-decoration: none;
+          transition: all 0.3s ease;
         }
 
-        .social-link:hover {
+        .social-icon-wrapper:hover .social-icon-inner {
           background: var(--primary-accent);
+          border-color: var(--primary-accent);
           color: white;
-          transform: translateY(-2px);
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(65, 146, 203, 0.3);
+        }
+
+        .social-icon-wrapper:hover svg {
+          transform: scale(1.2);
+          animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.2); }
+          100% { transform: scale(1); }
+        }
+
+        .footer-right {
+          flex: 2;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 2rem;
+        }
+
+        .footer-section {
+          min-width: 150px;
+          flex: 1;
+        }
+
+        .footer-section h4 {
+          font-size: 1.1rem;
+          margin-bottom: 1rem;
+          color: var(--primary-accent);
+          position: relative;
+          display: inline-block;
+        }
+
+        .footer-section h4::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -5px;
+          width: 0;
+          height: 2px;
+          background: var(--primary-accent);
+          transition: width 0.3s ease;
+        }
+
+        .footer-section:hover h4::after {
+          width: 100%;
         }
 
         .footer-links {
           list-style: none;
           padding: 0;
+          margin: 0;
         }
 
         .footer-links li {
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.75rem;
         }
 
         .footer-links a {
-          color: var(--text-secondary);
+          color: #e5e7eb;
           text-decoration: none;
-          transition: var(--transition-smooth);
+          font-size: 0.95rem;
+          transition: all 0.3s ease;
+          position: relative;
+          display: inline-block;
+          padding: 2px 0;
+          overflow: hidden;
+        }
+
+        .footer-links a span {
+          position: relative;
+          z-index: 1;
+          transition: transform 0.3s ease;
+          display: inline-block;
+        }
+
+        .footer-links a::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: var(--primary-accent);
+          transform: translateX(-100%);
+          transition: transform 0.3s ease;
         }
 
         .footer-links a:hover {
           color: var(--primary-accent);
-          padding-left: 5px;
+        }
+
+        .footer-links a:hover span {
+          transform: translateX(5px);
+        }
+
+        .footer-links a:hover::before {
+          transform: translateX(0);
         }
 
         .contact-info p {
-          color: var(--text-secondary);
-          margin-bottom: 0.5rem;
           display: flex;
           align-items: center;
           gap: 0.5rem;
+          margin-bottom: 0.75rem;
+          font-size: 0.95rem;
+          color: #e5e7eb;
+          transition: transform 0.3s ease;
         }
 
-        .footer-divider {
-          height: 1px;
-          background: linear-gradient(90deg, transparent, var(--border-color), transparent);
-          margin: 2rem 0;
+        .contact-info p:hover {
+          transform: translateX(5px);
+          color: var(--primary-accent);
         }
 
+        /* Exact original bottom footer */
         .footer-bottom-content {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          flex-wrap: wrap;
           gap: 1rem;
+          padding-top: 2rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          font-size: 0.85rem;
+          flex-wrap: wrap;
+          margin-top: 2rem;
         }
 
         .footer-bottom-content p {
-          color: var(--text-secondary);
           margin: 0;
+          color: #cbd5e1;
         }
 
-        .footer-bottom-links {
+        .footer-legal-links {
           display: flex;
-          gap: 2rem;
+          align-items: center;
+          gap: 0.75rem;
         }
 
-        .footer-bottom-links a {
-          color: var(--text-secondary);
+        .footer-legal-links a {
+          color: #cbd5e1;
           text-decoration: none;
-          font-size: 0.9rem;
-          transition: var(--transition-smooth);
+          transition: all 0.3s ease;
+          position: relative;
+          padding: 2px 0;
         }
 
-        .footer-bottom-links a:hover {
+        .footer-legal-links a::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          transform: scaleX(0);
+          height: 1px;
+          bottom: 0;
+          left: 0;
+          background-color: var(--primary-accent);
+          transform-origin: bottom right;
+          transition: transform 0.3s ease;
+        }
+
+        .footer-legal-links a:hover {
           color: var(--primary-accent);
         }
 
+        .footer-legal-links a:hover::after {
+          transform: scaleX(1);
+          transform-origin: bottom left;
+        }
+
         @media (max-width: 768px) {
-          .footer-content {
-            grid-template-columns: 1fr;
-            gap: 2rem;
+          .footer-main {
+            flex-direction: column;
+          }
+
+          .footer-right {
+            flex-direction: column;
           }
 
           .footer-bottom-content {
@@ -244,12 +328,12 @@ const Footer = () => {
             text-align: center;
           }
 
-          .footer-bottom-links {
+          .footer-legal-links {
             justify-content: center;
           }
         }
       `}</style>
-    </footer>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -7,11 +8,11 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState('');
 
   const words = ['Innovation', 'Excellence', 'Solutions', 'Technology'];
-  
+
   useEffect(() => {
     const typeSpeed = isDeleting ? 50 : 100;
     const word = words[currentWordIndex];
-    
+
     const timeout = setTimeout(() => {
       if (!isDeleting && currentCharIndex < word.length) {
         setDisplayText(word.substring(0, currentCharIndex + 1));
@@ -31,19 +32,15 @@ const Hero = () => {
   }, [currentCharIndex, currentWordIndex, isDeleting, words]);
 
   return (
-    <section className="hero" id="hero">
+    <section className="section hero" id="hero">
       <div className="hero-background">
         <div className="gradient-orb orb-1"></div>
         <div className="gradient-orb orb-2"></div>
         <div className="gradient-orb orb-3"></div>
       </div>
-      
+
       <div className="container">
         <div className="hero-content animate-fade-up">
-          <div className="hero-badge animate-scale">
-            🚀 Leading Digital Transformation in Nagaland
-          </div>
-          
           <h1 className="hero-title">
             <span className="title-line animate-fade-up stagger-1">
               Crafting Digital
@@ -56,24 +53,27 @@ const Hero = () => {
               for Tomorrow
             </span>
           </h1>
-          
+
           <p className="hero-subtitle animate-fade-up stagger-4">
-            We empower businesses across Nagaland and India with cutting-edge web applications, 
+            We empower businesses across Nagaland and India with cutting-edge web applications,
             mobile solutions, and digital experiences that drive growth and innovation.
           </p>
-          
+
           <div className="hero-cta animate-fade-up stagger-5">
             <a href="#contact" className="btn btn-primary btn-magnetic">
               Start Your Project
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="m9 18 6-6-6-6"/>
+                <path d="m9 18 6-6-6-6" />
               </svg>
             </a>
-            <a href="#projects" className="btn btn-secondary btn-magnetic">
+            <Link to="/projects" className="btn btn-primary btn-magnetic">
               View Our Work
-            </a>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </Link>
           </div>
-          
+
           <div className="hero-stats animate-fade-up stagger-6">
             <div className="stat">
               <span className="stat-number">30+</span>
@@ -89,8 +89,12 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="hero-visual animate-fade-right stagger-3">
+          <div className="hero-badge visual-badge animate-scale">
+            🚀 Leading Digital Transformation in Nagaland
+          </div>
+
           <div className="tech-grid">
             <div className="tech-item tech-1">
               <div className="tech-icon">💻</div>
@@ -186,19 +190,6 @@ const Hero = () => {
           z-index: 2;
         }
 
-        .hero-badge {
-          display: inline-block;
-          padding: 0.5rem 1rem;
-          background: rgba(65, 146, 203, 0.1);
-          border: 1px solid rgba(65, 146, 203, 0.3);
-          border-radius: 25px;
-          color: var(--primary-accent);
-          font-size: 0.9rem;
-          font-weight: 500;
-          margin-bottom: 2rem;
-          opacity: 0;
-        }
-
         .hero-title {
           font-size: clamp(2.5rem, 6vw, 4.5rem);
           font-weight: 700;
@@ -272,8 +263,24 @@ const Hero = () => {
           height: 500px;
           opacity: 0;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
+        }
+
+        .visual-badge {
+          margin-bottom: 2rem;
+          width: 100%;
+          max-width: 400px;
+          text-align: center;
+          display: inline-block;
+          padding: 0.5rem 1rem;
+          background: rgba(65, 146, 203, 0.1);
+          border: 1px solid rgba(65, 146, 203, 0.3);
+          border-radius: 25px;
+          color: var(--primary-accent);
+          font-size: 0.9rem;
+          font-weight: 500;
         }
 
         .tech-grid {
@@ -321,7 +328,7 @@ const Hero = () => {
 
         @media (max-width: 768px) {
           .hero {
-            padding-top: 100px;
+            padding-top: 135px;
           }
 
           .hero .container {
@@ -341,8 +348,16 @@ const Hero = () => {
           }
 
           .hero-visual {
-            height: 300px;
+            height: auto;
             order: -1;
+            margin-top: 20px;
+            padding-top: 10px;
+          }
+
+          .visual-badge {
+            margin-top: 10px;
+            margin-bottom: 2.5rem;
+            padding: 0.75rem 1.5rem;
           }
 
           .tech-grid {

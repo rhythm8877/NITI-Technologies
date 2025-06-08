@@ -6,12 +6,27 @@ import { useLocation } from 'react-router-dom';
  * It doesn't affect scroll behavior within the same page.
  */
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // Scroll to top of the page when pathname changes
+    // If there's a hash in the URL, try to scroll to that section
+    if (hash) {
+      // Remove the # character
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      
+      if (element) {
+        // Wait a bit for DOM to be fully loaded
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+        return;
+      }
+    }
+
+    // Otherwise, scroll to top
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
 
   // This component doesn't render anything
   return null;

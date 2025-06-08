@@ -57,12 +57,10 @@ const itemVariants = {
   hidden: { 
     y: 50, 
     opacity: 0,
-    scale: 0.9
   },
   visible: { 
     y: 0, 
-    opacity: 1, 
-    scale: 1,
+    opacity: 1,
     transition: {
       type: "spring",
       stiffness: 100,
@@ -123,12 +121,6 @@ const GridItem = ({ areaClass, icon, title, description, variants }) => {
     <motion.li 
       className={`grid-item ${areaClass}`}
       variants={variants}
-      whileHover={{ 
-        scale: 1.03, 
-        rotateX: "2deg", 
-        rotateY: "2deg",
-        transition: { duration: 0.3 }
-      }}
     >
       <div className="item-wrapper">
         <GlowingEffect
@@ -140,14 +132,7 @@ const GridItem = ({ areaClass, icon, title, description, variants }) => {
         />
         <div className="content-wrapper">
           <div className="content">
-            <motion.div 
-              className="icon-wrapper"
-              whileHover={{ 
-                scale: 1.1, 
-                rotate: 5,
-                transition: { duration: 0.2 } 
-              }}
-            >{icon}</motion.div>
+            <div className="icon-wrapper">{icon}</div>
             <div className="text-container">
               <h3 className="title">{title}</h3>
               <h2 className="description">{description}</h2>
@@ -170,7 +155,7 @@ const styles = `
 
   .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
 
   .section-header h2 {
@@ -191,80 +176,88 @@ const styles = `
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 1200px;
   }
 
   @media (min-width: 768px) {
     .grid-container {
+      display: grid;
       grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(3, auto);
+      grid-template-rows: repeat(2, minmax(180px, auto));
+      gap: 1.25rem;
     }
-  }
-
-  @media (min-width: 1280px) {
-    .grid-container {
-      max-height: 34rem;
-      grid-template-rows: repeat(2, 1fr);
+    
+    .grid-area-1 {
+      grid-column: 1 / span 6;
+      grid-row: 1;
     }
-  }
-
-  /* Grid Area Assignments */
-  @media (min-width: 768px) {
-    .grid-area-1 { grid-area: 1 / 1 / 2 / 7; }
-    .grid-area-2 { grid-area: 1 / 7 / 2 / 13; }
-    .grid-area-3 { grid-area: 2 / 1 / 3 / 7; }
-    .grid-area-4 { grid-area: 2 / 7 / 3 / 13; }
-    .grid-area-5 { grid-area: 3 / 1 / 4 / 13; }
-  }
-
-  @media (min-width: 1280px) {
-    .grid-area-1 { grid-area: 1 / 1 / 2 / 5; }
-    .grid-area-2 { grid-area: 2 / 1 / 3 / 5; }
-    .grid-area-3 { grid-area: 1 / 5 / 3 / 8; }
-    .grid-area-4 { grid-area: 1 / 8 / 2 / 13; }
-    .grid-area-5 { grid-area: 2 / 8 / 3 / 13; }
+    
+    .grid-area-2 {
+      grid-column: 7 / span 6;
+      grid-row: 1;
+    }
+    
+    .grid-area-3 {
+      grid-column: 9 / span 4;
+      grid-row: 2;
+    }
+    
+    .grid-area-4 {
+      grid-column: 1 / span 4;
+      grid-row: 2;
+    }
+    
+    .grid-area-5 {
+      grid-column: 5 / span 4;
+      grid-row: 2;
+    }
   }
 
   /* Grid Item */
   .grid-item {
-    min-height: 14rem;
+    min-height: 180px;
     list-style: none;
+    display: flex;
+  }
+
+  @media (max-width: 767px) {
+    .grid-item {
+      margin-bottom: 1rem;
+    }
+    .grid-item:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .item-wrapper {
     position: relative;
+    width: 100%;
     height: 100%;
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 0.75rem;
+    padding: 0.5rem;
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
-    transition: var(--transition-smooth);
+    transition: border-color 0.3s ease;
   }
 
   .item-wrapper:hover {
-    background: rgba(255, 255, 255, 0.08);
     border-color: var(--primary-accent);
-    transform: translateY(-5px);
-  }
-
-  @media (max-width: 767px) {
-    .item-wrapper {
-      border-radius: 1rem;
-      padding: 0.5rem;
-    }
+    background: rgba(255, 255, 255, 0.05);
   }
 
   .content-wrapper {
     position: relative;
     display: flex;
+    width: 100%;
     height: 100%;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 1.5rem;
+    justify-content: flex-start;
+    gap: 1rem;
     overflow: hidden;
     border-radius: 0.75rem;
-    padding: 1.5rem;
+    padding: 1.25rem;
     border: 0.75px solid transparent;
   }
 
@@ -273,38 +266,38 @@ const styles = `
     display: flex;
     flex: 1 1 0%;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 0.75rem;
+    justify-content: flex-start;
+    gap: 1rem;
   }
 
   .icon-wrapper {
     width: fit-content;
     border-radius: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 0.5rem;
+    padding: 0.625rem;
     background: rgba(255, 255, 255, 0.05);
-    transition: var(--transition-smooth);
+    transition: background-color 0.3s ease;
+    margin-bottom: 0.5rem;
   }
 
   .item-wrapper:hover .icon-wrapper {
     background: rgba(255, 255, 255, 0.1);
-    transform: scale(1.05);
   }
 
   .icon {
-    height: 1rem;
-    width: 1rem;
+    height: 1.25rem;
+    width: 1.25rem;
     color: var(--primary-accent);
   }
 
   .text-container {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   .title {
-    padding-top: 2px;
+    padding-top: 0;
     font-family: var(--font-primary);
     font-size: 1.25rem;
     line-height: 1.375rem;
@@ -317,9 +310,10 @@ const styles = `
   .description {
     font-family: var(--font-secondary);
     font-size: 0.875rem;
-    line-height: 1.125rem;
+    line-height: 1.25rem;
     color: var(--text-secondary);
     margin: 0;
+    font-weight: 400;
   }
 
   @media (min-width: 768px) {
