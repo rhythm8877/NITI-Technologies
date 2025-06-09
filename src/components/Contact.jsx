@@ -71,7 +71,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <section className="contact section animate-on-scroll" id="contact">
+    <section className="contact section-alt animate-on-scroll" id="contact">
       <div className="container">
         <div className="contact-content">
           <div className="contact-info animate-on-scroll stagger-1">
@@ -127,7 +127,7 @@ const Contact = () => {
                     inactiveZone={0.01}
                   />
                   <a href="#" className="social-link">
-                    <Facebook size={18} className="social-icon" />
+                    <Facebook size={22} className="social-icon" />
                   </a>
                 </div>
                 
@@ -140,7 +140,7 @@ const Contact = () => {
                     inactiveZone={0.01}
                   />
                   <a href="#" className="social-link">
-                    <Linkedin size={18} className="social-icon" />
+                    <Linkedin size={22} className="social-icon" />
                   </a>
                 </div>
                 
@@ -153,7 +153,7 @@ const Contact = () => {
                     inactiveZone={0.01}
                   />
                   <a href="#" className="social-link">
-                    <Twitter size={18} className="social-icon" />
+                    <Twitter size={22} className="social-icon" />
                   </a>
                 </div>
               </div>
@@ -269,7 +269,7 @@ const Contact = () => {
         .info-wrapper {
           display: flex;
           flex-direction: column;
-          gap: 2rem;
+          gap: 1.25rem;
         }
 
         .info-description {
@@ -282,7 +282,7 @@ const Contact = () => {
         .contact-details {
           display: flex;
           flex-direction: column;
-          gap: 2rem;
+          gap: 1.25rem;
         }
 
         .contact-item {
@@ -329,11 +329,13 @@ const Contact = () => {
 
         .contact-social {
           color: var(--text-primary);
-          margin-top: 2rem;
+          margin-top: 1.25rem;
         }
         
         .contact-social h4 {
-          margin-bottom: 1.5rem;
+          margin-bottom: 1.25rem;
+          font-size: 1.1rem;
+          color: var(--text-primary);
         }
 
         .social-links {
@@ -343,8 +345,8 @@ const Contact = () => {
 
         .social-link-wrapper {
           position: relative;
-          height: 45px;
-          width: 45px;
+          height: 50px;
+          width: 50px;
           border-radius: 50%;
           padding: 0.2rem;
           transition: var(--transition-smooth);
@@ -450,7 +452,12 @@ const Contact = () => {
           color: var(--text-primary);
           font-size: 1rem;
           transition: var(--transition-smooth);
+        }
+        
+        .form-group textarea {
           resize: vertical;
+          min-height: 120px;
+          max-height: 300px;
         }
 
         .form-group input:focus,

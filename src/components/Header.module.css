@@ -8,28 +8,36 @@
   width: 100%;
 }
 
-/* --- Desktop Navigation Body --- */
 .navBody {
   position: relative;
   z-index: 60;
-  margin: 0 auto;
-  max-width: 80rem;
   align-items: center;
   justify-content: space-between;
   align-self: flex-start;
-  border-radius: 9999px;
   background-color: rgba(15, 26, 34, 0.8);
   backdrop-filter: blur(10px);
   padding: 0.5rem 1rem;
   display: none;
   min-width: 800px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  transition:
+  background-color 2s ease,
+  border-radius 2s ease,
+  max-width 2s ease,
+  margin 2s ease,
+  box-shadow 2s ease;
 }
 
 .navBodyScrolled {
   background-color: rgba(15, 26, 34, 0.95);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 9999px;
+  max-width: 80rem;
+  margin: 0 auto;
 }
+
+
+
 
 @media (min-width: 1024px) {
   .navBody {
@@ -239,7 +247,7 @@
 .navbarLogo {
   height: 32px;            /* Reduced size */
   width: auto;             /* Keep aspect ratio */
-  margin: 8px 1rem 8px 1rem; /* Top, Right, Bottom, Left */
+  margin: 8px 1rem 8px 1.5rem; /* Top, Right, Bottom, Left */
   display: inline-block;
   object-fit: contain;
   vertical-align: middle;  /* Helps align with surrounding text/buttons */

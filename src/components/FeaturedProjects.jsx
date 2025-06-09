@@ -32,7 +32,7 @@ const FeaturedProjects = () => {
   };
 
   return (
-    <section className="featured-projects section animate-on-scroll" id="projects">
+    <section className="featured-projects section-alt animate-on-scroll" id="projects">
       <div className="container">
         <div className="section-header">
           <h2>Featured Projects</h2>
@@ -99,8 +99,8 @@ const FeaturedProjects = () => {
         .featured-projects {
           position: relative;
           padding: var(--section-padding);
-          margin-top: 4rem;
-          margin-bottom: 4rem;
+          margin-top: 0;
+          margin-bottom: 0;
           background: var(--background);
         }
 
