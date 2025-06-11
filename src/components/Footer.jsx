@@ -53,9 +53,9 @@ const Footer = () => {
             <div className="footer-right">
               <h4>Contact</h4>
               <div className="contact-info">
-                <p><FaPhoneAlt /> +91 12345 67890</p>
-                <p><FaEnvelope /> info@niti.com</p>
-                <p><FaMapMarkerAlt /> Kohima, Nagaland - 797001</p>
+                <p><FaPhoneAlt /> +91 7005291593</p>
+                <p><FaEnvelope /> admin@nititechnologies.in</p>
+                <p><FaMapMarkerAlt /> Dimapur, Nagaland - 797112</p>
               </div>
             </div>
           </div>
@@ -63,11 +63,6 @@ const Footer = () => {
           {/* Bottom copyright footer */}
           <div className="footer-bottom">
             <p>© 2025 NITI Technologies. All rights reserved.</p>
-            <div className="footer-legal-links">
-              <a href="#">Privacy Policy</a>
-              <span>•</span>
-              <a href="#">Terms of Service</a>
-            </div>
           </div>
         </div>
       </footer>
@@ -242,7 +237,7 @@ const Footer = () => {
         /* Bottom footer styling */
         .footer-bottom {
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
           gap: 0.75rem;
           padding-top: 1.25rem;
@@ -255,42 +250,6 @@ const Footer = () => {
         .footer-bottom p {
           margin: 0;
           color: #cbd5e1;
-        }
-        
-        .footer-legal-links {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-        }
-        
-        .footer-legal-links a {
-          color: #cbd5e1;
-          text-decoration: none;
-          transition: var(--transition-smooth);
-          position: relative;
-          padding: 2px 0;
-        }
-        
-        .footer-legal-links a::after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          transform: scaleX(0);
-          height: 1px;
-          bottom: 0;
-          left: 0;
-          background-color: var(--primary-accent);
-          transform-origin: bottom right;
-          transition: transform 0.3s ease;
-        }
-        
-        .footer-legal-links a:hover {
-          color: var(--primary-accent);
-        }
-        
-        .footer-legal-links a:hover::after {
-          transform: scaleX(1);
-          transform-origin: bottom left;
         }
         
         /* Responsive Mobile Styles */

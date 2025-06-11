@@ -4,6 +4,20 @@ import Header from "./components/Header";
 import ScrollToTop from "./components/ScrollToTop";
 import Landing from "./pages/Landing";
 import Projects from "./pages/Projects";
+import BloodConnectPrivacyPolicies from "./components/privacy/blood_connect/privacyPolicy";
+import BloodConnectAccountDeletion from "./components/privacy/blood_connect/accountDeletion";
+import HornbillPrivacyPolicies from "./components/privacy/hornbill/privacyPolicy";
+import HornbillAccountDeletion from "./components/privacy/hornbill/accountDeletion";
+import DYRSPrivacyPolicies from "./components/privacy/dyrs/privacyPolicy";
+import DYRSAccountDeletion from "./components/privacy/dyrs/accountDeletion";
+import KSCJPrivacyPolicies from "./components/privacy/kscj/privacyPolicy";
+import KSCJAccountDeletion from "./components/privacy/kscj/accountDeletion";
+import NBSEPrivacyPolicies from "./components/privacy/nbse/privacyPolicy";
+import NBSEAccountDeletion from "./components/privacy/nbse/accountDeletion";
+import TradikartPrivacyPolicies from "./components/privacy/tradikart/privacyPolicy";
+import TradikartAccountDeletion from "./components/privacy/tradikart/accountDeletion";
+import PeaceChannelPrivacyPolicies from "./components/privacy/peace_channel/privacyPolicy";
+import PeaceChannelAccountDeletion from "./components/privacy/peace_channel/accountDeletion";
 
 const App = () => (
   <BrowserRouter>
@@ -13,6 +27,20 @@ const App = () => (
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/blood-connect/privacy-policy" element={<BloodConnectPrivacyPolicies/>} />
+        <Route path="/blood-connect/account-deletion" element={<BloodConnectAccountDeletion/>} />
+        <Route path="/hornbill/privacy-policy" element={<HornbillPrivacyPolicies/>} />
+        <Route path="/hornbill/account-deletion" element={<HornbillAccountDeletion/>} />
+        <Route path="/dyrs/privacy-policy" element={<DYRSPrivacyPolicies/>} />
+        <Route path="/dyrs/account-deletion" element={<DYRSAccountDeletion/>} />
+        <Route path="/kscj/privacy-policy" element={<KSCJPrivacyPolicies/>} />
+        <Route path="/kscj/account-deletion" element={<KSCJAccountDeletion/>} />
+        <Route path="/nbse/privacy-policy" element={<NBSEPrivacyPolicies/>} />
+        <Route path="/nbse/account-deletion" element={<NBSEAccountDeletion/>} />
+        <Route path="/tradikart/privacy-policy" element={<TradikartPrivacyPolicies/>} />
+        <Route path="/tradikart/account-deletion" element={<TradikartAccountDeletion/>} />
+        <Route path="/peace-channel/privacy-policy" element={<PeaceChannelPrivacyPolicies/>} />
+        <Route path="/peace-channel/account-deletion" element={<PeaceChannelAccountDeletion/>} />
       </Routes>
       <Footer />
     </div>

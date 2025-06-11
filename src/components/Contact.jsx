@@ -99,7 +99,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4>Email Us</h4>
-                    <p>hello@nititechnologies.com</p>
+                    <p>admin@nititechnologies.in</p>
                   </div>
                 </div>
                 
@@ -109,7 +109,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4>Call Us</h4>
-                    <p>+91 9876543210</p>
+                    <p>+91 7005291593</p>
                   </div>
                 </div>
               </div>
@@ -140,7 +140,7 @@ const Contact = () => {
                     inactiveZone={0.01}
                   />
                   <a href="#" className="social-link">
-                    <Linkedin size={22} className="social-icon" />
+                    <Twitter size={22} className="social-icon" />
                   </a>
                 </div>
                 
@@ -153,8 +153,9 @@ const Contact = () => {
                     inactiveZone={0.01}
                   />
                   <a href="#" className="social-link">
-                    <Twitter size={22} className="social-icon" />
+                    <Linkedin size={22} className="social-icon" />
                   </a>
+                  
                 </div>
               </div>
             </div>
