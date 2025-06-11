@@ -145,6 +145,14 @@
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
+.mobileNavScrolled .navbarLogo {
+  margin-left: 0.5rem;
+}
+
+.mobileNavScrolled .menuIcon {
+  margin-right: 0.5rem;
+}
+
 @media (min-width: 1024px) {
   .mobileNav {
     display: none;

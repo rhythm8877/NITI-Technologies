@@ -1,20 +1,18 @@
-import React from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import "../privacy-policy.css";
 
-const PeaceChannelPrivacyPolicies = () => {
-
+const SamagraShikshaPrivacyPolicies = () => {
 
   return (
     <div>
       <div className='home_div_three'>
-        <p className='home_div_three_header'>Privacy Policy for <span style={{color:"#0094d0"}}>Peace Channel</span></p>
+        <p className='home_div_three_header'>Privacy Policy for <span style={{color:"#0094d0"}}>Samagra Shiksha Nagaland</span></p>
         <div className="termscontainer">
           <div>
             <p className="terms-Title">Privacy Policy</p>
-            <p className="policy-Txt">The Peace Channel app is developed and maintained by NITI Technologies, aimed at providing a platform to engage in peace-building activities such as events, volunteering, internships, and contributing to harmony through participation in community-based initiatives.</p>
+            <p className="policy-Txt">The Samagra Shiksha Nagaland app is developed, maintained and owned only by NITI Technologies, with a primary focus on providing a platform to highlight information about Nagaland, and all data in the app are sourced from public domains. Samagra Shiksha Nagaland app is not affiliated with any government entity in any form.</p>
             <p className="policy-SubTitle">1. Information Collection and Use:</p>
             <ul>
               <li>
@@ -48,7 +46,7 @@ const PeaceChannelPrivacyPolicies = () => {
             <p className="policy-SubTitle">4. Data Retention & Deletion:</p>
             <ul>
               <li>
-                  <p>All your personal and attendance details are retained as long as you use Peace Channel App.</p>
+                  <p>All your personal and attendance details are retained as long as you use Samagra Shiksha Nagaland App.</p>
               </li>
               <li>
                   <p>All your data will be deleted if you request to delete your account.</p>
@@ -70,7 +68,7 @@ const PeaceChannelPrivacyPolicies = () => {
 
             <p className="policy-SubTitle">6. Changes to the Privacy Policy: <span className="policy-spanSubTitle">We reserve the right to modify or update this privacy policy at any time. We will notify you of any material changes through prominent notices on our website.</span></p>
             <p className="policy-SubTitle">7. Contact Us: <span className="policy-spanSubTitle">If you have any questions, concerns, or requests regarding our privacy policy or the handling of your personal information, please contact us using the provided contact information.</span></p>
-            <p>Last updated: 31/10/2024</p>
+            <p>Last updated: 04/11/2024</p>
             <p>If you have any further questions or require assistance, please don't hesitate to contact our customer support team at admin@nititechnologies.in. We are here to assist you.</p>
             <p className="privacy_policy_address">NITI Technologies,</p>
             <p className="privacy_policy_address">Opp: Ram Janaki School, Marwaripatti,</p>
@@ -95,4 +93,4 @@ const PeaceChannelPrivacyPolicies = () => {
   )
 }
 
-export default PeaceChannelPrivacyPolicies
+export default SamagraShikshaPrivacyPolicies

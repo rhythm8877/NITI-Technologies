@@ -13,10 +13,13 @@
     font-weight: 600;
     font-size: 28px;
     color: var(--text-primary) !important;
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px;
     padding: 0 20px;
     margin-top: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Title that stays outside the card */
@@ -25,9 +28,12 @@
     font-weight: 600;
     font-size: 28px;
     color: var(--text-primary);
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
     padding: 0 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Main card container for all privacy policy content */
@@ -247,11 +253,13 @@ button.requestQuote:hover {
         font-size: 32px;
         margin-bottom: 40px;
         margin-top: 30px;
+        padding: 0 10px;
     }
     
     .privacy-policy-header {
         font-size: 32px;
         margin-bottom: 30px;
+        padding: 0 10px;
     }
     
     .privacy-policy-card {
@@ -297,19 +305,21 @@ button.requestQuote:hover {
         margin-bottom: 25px;
         margin-top: 15px;
         padding: 0 15px;
+        margin-left: 0;
+        margin-right: 0;
     }
     
     .privacy-policy-header {
         font-size: 24px;
         margin-bottom: 20px;
         padding: 0 15px;
+        margin-left: 0;
+        margin-right: 0;
     }
     
     .privacy-policy-card {
         margin: 15px;
         border-radius: 15px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
     }
     
     .privacy-policy-content {
@@ -348,16 +358,12 @@ button.requestQuote:hover {
         padding: 30px 25px;
         margin: 0 15px 20px 15px;
         border-radius: 15px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
     }
     
     .downloadAppContainer {
         padding: 30px 25px;
         margin: 0 15px 20px 15px;
         border-radius: 15px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
         min-height: 90vh;
     }
 }

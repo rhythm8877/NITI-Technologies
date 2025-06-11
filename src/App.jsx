@@ -18,6 +18,8 @@ import TradikartPrivacyPolicies from "./components/privacy/tradikart/privacyPoli
 import TradikartAccountDeletion from "./components/privacy/tradikart/accountDeletion";
 import PeaceChannelPrivacyPolicies from "./components/privacy/peace_channel/privacyPolicy";
 import PeaceChannelAccountDeletion from "./components/privacy/peace_channel/accountDeletion";
+import SamagraShikshaPrivacyPolicies from "./components/privacy/samagra_shiksha/privacyPolicy";
+import SamagraShikshaAccountDeletion from "./components/privacy/samagra_shiksha/accountDeletion";
 
 const App = () => (
   <BrowserRouter>
@@ -41,6 +43,8 @@ const App = () => (
         <Route path="/tradikart/account-deletion" element={<TradikartAccountDeletion/>} />
         <Route path="/peace-channel/privacy-policy" element={<PeaceChannelPrivacyPolicies/>} />
         <Route path="/peace-channel/account-deletion" element={<PeaceChannelAccountDeletion/>} />
+        <Route path="/samagra-shiksha/privacy-policy" element={<SamagraShikshaPrivacyPolicies/>} />
+        <Route path="/samagra-shiksha/account-deletion" element={<SamagraShikshaAccountDeletion/>} />
       </Routes>
       <Footer />
     </div>
