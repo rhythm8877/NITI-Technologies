@@ -10,12 +10,12 @@ import "react-toastify/dist/ReactToastify.css";
 import "../privacy-policy.css";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCta7U3EOVJrRT_qyMW9HvMVDLddquEPzg",
-  authDomain: "peace-channel-nagaland.firebaseapp.com",
-  projectId: "peace-channel-nagaland",
-  storageBucket: "peace-channel-nagaland.firebasestorage.app",
-  messagingSenderId: "628312595718",
-  appId: "1:628312595718:web:25762e26fe0d4a3ce71287"
+  apiKey: "AIzaSyCuKArLz6XXWoe0aUPqKOOwgVcjzITic3c",
+  authDomain: "blood-connect-app.firebaseapp.com",
+  projectId: "blood-connect-app",
+  storageBucket: "blood-connect-app.appspot.com",
+  messagingSenderId: "615432910501",
+  appId: "1:615432910501:web:2389fe43b76fa6fa26ff4c"
 };
 
 // Initialize Firebase app with a unique name to avoid conflicts
