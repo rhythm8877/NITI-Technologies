@@ -7,52 +7,33 @@
     background: var(--background);
 }
 
-/* Header that stays outside the card - for "Privacy Policy for [App Name]" */
+/* Header that stays outside the card - for "Privacy Policy for [App Name]" and "Account Deletion for [App Name]" */
 .home_div_three_header {
     font-family: 'Roboto', sans-serif !important;
-    font-weight: 600;
-    font-size: 28px;
+    font-weight: 600 !important;
+    font-size: 28px !important;
     color: var(--text-primary) !important;
-    text-align: left;
-    margin-bottom: 30px;
-    padding: 0 20px;
-    margin-top: 20px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: left !important;
+    margin-bottom: 30px !important;
+    padding: 0 20px !important;
+    margin-top: 20px !important;
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
-/* Title that stays outside the card */
-.privacy-policy-header {
-    font-family: 'Roboto', sans-serif !important;
-    font-weight: 600;
-    font-size: 28px;
-    color: var(--text-primary);
-    text-align: left;
-    margin-bottom: 20px;
-    padding: 0 20px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Main card container for all privacy policy content */
-.privacy-policy-card {
+/* Main container for all privacy policy and account deletion content */
+.termscontainer {
     background-color: #000;
     color: #fff !important;
     border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    margin: 20px auto;
-    max-width: 1200px;
-    overflow: hidden;
-}
-
-/* Content wrapper inside the card */
-.privacy-policy-content {
     padding: 40px;
+    margin: 0 auto 20px auto;
+    max-width: 1200px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-/* Typography inside the card */
+/* Typography inside the container */
 p.policy-Txt {
     font-family: 'Roboto', sans-serif !important;
     letter-spacing: 0.01em;
@@ -114,6 +95,15 @@ ul, ol {
     font-family: 'Roboto', sans-serif !important;
     font-weight: 500;
     color: #fff;
+}
+
+.privacy_policy_Title {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 15px;
+    margin-top: 30px;
 }
 
 /* Account deletion specific styles */
@@ -231,18 +221,6 @@ button.requestQuote:hover {
     box-shadow: 0 10px 25px rgba(0, 149, 207, 0.3);
 }
 
-/* Backward compatibility containers */
-.termscontainer,
-.downloadAppContainer {
-    background-color: #000;
-    color: #fff !important;
-    border-radius: 20px;
-    padding: 40px;
-    margin: 0 auto 20px auto;
-    max-width: 1200px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
 /* Desktop styles */
 @media screen and (min-width: 770px) {
     .home_div_three {
@@ -250,35 +228,10 @@ button.requestQuote:hover {
     }
     
     .home_div_three_header {
-        font-size: 32px;
-        margin-bottom: 40px;
-        margin-top: 30px;
-        padding: 0 10px;
-    }
-    
-    .privacy-policy-header {
-        font-size: 32px;
-        margin-bottom: 30px;
-        padding: 0 10px;
-    }
-    
-    .privacy-policy-card {
-        margin: 30px auto;
-        border-radius: 25px;
-    }
-    
-    .privacy-policy-content {
-        padding: 50px 60px;
-    }
-    
-    p.privacy_policy_Title {
-        margin-top: 7% !important;
-    }
-    
-    button.requestQuote {
-        height: 50px;
-        font-size: 18px;
-        margin-top: 30px;
+        font-size: 50px !important;
+        margin-bottom: 40px !important;
+        margin-top: 30px !important;
+        padding: 0 3px !important;
     }
     
     .termscontainer {
@@ -287,10 +240,10 @@ button.requestQuote:hover {
         border-radius: 25px;
     }
     
-    .downloadAppContainer {
-        padding: 50px 60px;
-        margin: 0 auto 30px auto;
-        border-radius: 25px;
+    button.requestQuote {
+        height: 50px;
+        font-size: 18px;
+        margin-top: 30px;
     }
 }
 
@@ -301,29 +254,18 @@ button.requestQuote:hover {
     }
     
     .home_div_three_header {
-        font-size: 24px;
-        margin-bottom: 25px;
-        margin-top: 15px;
-        padding: 0 15px;
-        margin-left: 0;
-        margin-right: 0;
+        font-size: 31.5px !important;
+        margin-bottom: 25px !important;
+        margin-top: 15px !important;
+        padding: 0 15px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
     
-    .privacy-policy-header {
-        font-size: 24px;
-        margin-bottom: 20px;
-        padding: 0 15px;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    
-    .privacy-policy-card {
-        margin: 15px;
-        border-radius: 15px;
-    }
-    
-    .privacy-policy-content {
+    .termscontainer {
         padding: 30px 25px;
+        margin: 0 15px 20px 15px;
+        border-radius: 15px;
     }
     
     p.policy-Txt {
@@ -353,19 +295,6 @@ button.requestQuote:hover {
         margin-bottom: 20px;
         margin-top: 20px;
     }
-    
-    .termscontainer {
-        padding: 30px 25px;
-        margin: 0 15px 20px 15px;
-        border-radius: 15px;
-    }
-    
-    .downloadAppContainer {
-        padding: 30px 25px;
-        margin: 0 15px 20px 15px;
-        border-radius: 15px;
-        min-height: 90vh;
-    }
 }
 
 /* Extra small devices */
@@ -375,23 +304,14 @@ button.requestQuote:hover {
     }
     
     .home_div_three_header {
-        font-size: 20px;
-        padding: 0 10px;
-        margin-bottom: 20px;
-        margin-top: 10px;
+        font-size: 25px !important;
+        padding: 0 10px !important;
+        margin-bottom: 20px !important;
+        margin-top: 10px !important;
     }
     
-    .privacy-policy-header {
-        font-size: 20px;
-        padding: 0 10px;
-    }
-    
-    .privacy-policy-card {
-        margin: 10px;
-    }
-    
-    .privacy-policy-content {
-        padding: 25px 20px;
+    .termscontainer {
+        margin: 0 10px 20px 10px;
     }
     
     p.policy-Txt {
@@ -412,13 +332,5 @@ button.requestQuote:hover {
     
     ul, ol {
         padding-left: 25px;
-    }
-    
-    .termscontainer {
-        margin: 0 10px 20px 10px;
-    }
-    
-    .downloadAppContainer {
-        margin: 0 10px 20px 10px;
     }
 }

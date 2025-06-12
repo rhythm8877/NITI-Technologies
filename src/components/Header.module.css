@@ -295,6 +295,7 @@
   text-align: center;
   text-decoration: none;
   overflow: hidden;
+  margin-right: 1.5rem;
 }
 
 .navbarButton:hover {
