@@ -20,6 +20,8 @@ import PeaceChannelPrivacyPolicies from "./components/privacy/peace_channel/priv
 import PeaceChannelAccountDeletion from "./components/privacy/peace_channel/accountDeletion";
 import SamagraShikshaPrivacyPolicies from "./components/privacy/samagra_shiksha/privacyPolicy";
 import SamagraShikshaAccountDeletion from "./components/privacy/samagra_shiksha/accountDeletion";
+import RishavSethiPrivacyPolicies from "./components/privacy/rishav_sethi/privacyPolicy";
+import RishavSethiAccountDeletion from "./components/privacy/rishav_sethi/accountDeletion";
 
 const App = () => (
   <BrowserRouter>
@@ -45,6 +47,8 @@ const App = () => (
         <Route path="/peace-channel/account-deletion" element={<PeaceChannelAccountDeletion/>} />
         <Route path="/samagra-shiksha/privacy-policy" element={<SamagraShikshaPrivacyPolicies/>} />
         <Route path="/samagra-shiksha/account-deletion" element={<SamagraShikshaAccountDeletion/>} />
+        <Route path="/er-rishav-sethi/privacy-policy" element={<RishavSethiPrivacyPolicies/>} />
+        <Route path="/er-rishav-sethi/account-deletion" element={<RishavSethiAccountDeletion/>} />
       </Routes>
       <Footer />
     </div>

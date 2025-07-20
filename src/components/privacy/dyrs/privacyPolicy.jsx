@@ -66,9 +66,30 @@ const DYRSPrivacyPolicies = () => {
               </li>
             </ul>
 
-            <p className="policy-SubTitle">6. Changes to the Privacy Policy: <span className="policy-spanSubTitle">We reserve the right to modify or update this privacy policy at any time. We will notify you of any material changes through prominent notices on our website.</span></p>
-            <p className="policy-SubTitle">7. Contact Us: <span className="policy-spanSubTitle">If you have any questions, concerns, or requests regarding our privacy policy or the handling of your personal information, please contact us using the provided contact information.</span></p>
-            <p>Last updated: 31/10/2024</p>
+            <p className="policy-SubTitle">6. Face Data Policies:</p>
+            <ul>
+              <li>
+                  <p>Face recognition-based attendance management is exclusively available for registered DYRS officers and is not accessible to public users. This ensures the system’s privacy and security, restricting its use to authorized personnel only.</p>
+              </li>
+              <li>
+                  <p>Face data, i.e., the picture collected, is utilized solely to mark the attendance of specific DYRS officers.</p>
+              </li>
+              <li>
+                  <p>All collected face data is temporarily retained on Firebase Cloud Storage for a duration of 24 hours. After this period, the data is automatically and permanently deleted from the system.</p>
+              </li>
+              <li>
+                  <p>No face data will be shared with any third party, ensuring complete confidentiality. The sole purpose of collecting this data is to facilitate the attendance management system for registered officers.</p>
+              </li>
+              <li>
+                  <p>The face recognition system has been designed prioritizing user privacy and adhering to industry best practices.</p>
+              </li>
+              <li>
+                  <p>Users can contact helpdesk for queries or concerns regarding face data usage, ensuring a transparent and accessible communication channel.</p>
+              </li>
+            </ul>
+            <p className="policy-SubTitle">7. Changes to the Privacy Policy: <span className="policy-spanSubTitle">We reserve the right to modify or update this privacy policy at any time. We will notify you of any material changes through prominent notices on our website.</span></p>
+            <p className="policy-SubTitle">8. Contact Us: <span className="policy-spanSubTitle">If you have any questions, concerns, or requests regarding our privacy policy or the handling of your personal information, please contact us using the provided contact information.</span></p>
+            <p>Last updated: 01/07/2025</p>
             <p>If you have any further questions or require assistance, please don’t hesitate to contact our customer support team at admin@nititechnologies.in. We are here to assist you.</p>
             <p className="privacy_policy_address">NITI Technologies,</p>
             <p className="privacy_policy_address">Opp: Ram Janaki School, Marwaripatti,</p>
