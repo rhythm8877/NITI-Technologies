@@ -70,7 +70,7 @@ const AbuMethaPrivacyPolicies = () => {
 
                         <p className="policy-SubTitle">6. Changes to the Privacy Policy: <span className="policy-spanSubTitle">We reserve the right to modify or update this privacy policy at any time. We will notify you of any material changes through app notifications or email communication.</span></p>
                         <p className="policy-SubTitle">7. Contact Us: <span className="policy-spanSubTitle">If you have any questions, concerns, or requests regarding our privacy policy or the handling of your personal information, please contact us using the provided contact information.</span></p>
-                        <p>Last updated: 10/07/2025</p>
+                        <p>Last updated: 07/02/2026</p>
                         <p>If you have any further questions or require assistance, please don't hesitate to contact our customer support team at admin@nititechnologies.in. We are here to assist you.</p>
                         <p className="privacy_policy_address">NITI Technologies,</p>
                         <p className="privacy_policy_address">Opp: Ram Janaki School, Marwaripatti,</p>
